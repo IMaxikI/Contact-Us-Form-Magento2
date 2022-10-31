@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="test_form_contact_us"
+              label="Test Form Contact Us"
+              file="contact_us_template.html"
+              type="html"
+              module="Test_Form"
+              area="frontend"/>
+</config>

@@ -1,0 +1,14 @@
+.form {
+    width: 380px;
+}
+
+.form-label {
+    margin-bottom: 10px;
+}
+
+.form-btn {
+    margin-top: 10px;
+    background-color: green;
+    color: white;
+    padding: 7px 30px;
+}

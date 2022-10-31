@@ -1,0 +1,24 @@
+<?php
+/** @var \Test\Form\Block\Form $block */
+?>
+<div>
+    <h3>Contact us</h3>
+    <form class="<?= $block->escapeHtml($block->getFormCss()); ?>" method="post"
+          action="<?= $block->getFormAction(); ?>" data-mage-init='{"validation": {}}'>
+
+        <label class="<?= $block->escapeHtml($block->getLabelCss()); ?>"><?= __('Name:') ?></label>
+        <input type="text" required="true" name="name" placeholder="<?= __('Enter your name...') ?>"
+               no-marginal-whitespace="true" minlength="2">
+
+        <label class="<?= $block->escapeHtml($block->getLabelCss()); ?>"><?= __('Email:') ?></label>
+        <input type="email" required="true" name="email" placeholder="<?= __('Enter your email...') ?>">
+
+        <label class="<?= $block->escapeHtml($block->getLabelCss()); ?>"><?= __('Message:') ?></label>
+        <textarea required="true" name="message" placeholder="<?= __('Enter message...') ?>" minlength="50"
+                  no-marginal-whitespace="true"></textarea>
+
+        <button class="<?= $block->escapeHtml($block->getBtnCss()); ?>" type="submit">
+            <?= __('Send') ?>
+        </button>
+    </form>
+</div>

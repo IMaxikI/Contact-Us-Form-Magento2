@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Test_Form::css/form.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block name="Test_Form.form" class="Test\Form\Block\Form" template="Test_Form::form.phtml">
+                <arguments>
+                    <argument name="form_css" xsi:type="string">form</argument>
+                    <argument name="label_css" xsi:type="string">form-label</argument>
+                    <argument name="btn_css" xsi:type="string">form-btn</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
