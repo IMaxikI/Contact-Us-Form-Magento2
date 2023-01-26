@@ -1,0 +1,85 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php if ($_product->isSaleable()) :?>
+    <div class="box-tocart">
+        <div id="quick-order-modal-content" >
+            <form id="quick-order-form" style="display: none;">
+                <div class="fieldset">
+                    <div class="field">
+                        <strong><?= __('Product Name: ') ?></strong>
+                        <span id="product-name"></span>
+                    </div>
+                    <div class="field">
+                        <label class="label"><?= __('Name') ?></label>
+                        <input type="text" name="name">
+                    </div>
+                    <div class="field _required">
+                        <label class="label"><?= __('Phone Number') ?></label>
+                        <input type="text" name="phone">
+                    </div>
+                    <div class="field">
+                        <label class="label"><?= __('Comment') ?></label>
+                        <textarea name="comment"></textarea>
+                    </div>
+                    <div class="field">
+                        <span id="quick-order-note">Менеджер работает с 9 до 19-ти и свяжется с Вами в течение 4-х рабочих часов.</span>
+                    </div>
+                    <div class="field">
+                        <button type="submit" class="action primary"><?= __('Submit') ?></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="fieldset">
+            <?php if ($block->shouldRenderQuantity()) :?>
+                <div class="field qty">
+                    <label class="label" for="qty"><span><?= $block->escapeHtml(__('Qty')) ?></span></label>
+                    <div class="control">
+                        <input type="number"
+                               name="qty"
+                               id="qty"
+                               min="0"
+                               value="<?= $block->getProductDefaultQty() * 1 ?>"
+                               title="<?= $block->escapeHtmlAttr(__('Qty')) ?>"
+                               class="input-text qty"
+                               data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                        />
+                    </div>
+                </div>
+            <?php endif; ?>
+            <div class="actions">
+                <button
+                    type="button"
+                    title="<?= __('Quick order') ?>"
+                    class="tocart primary quick-order"
+                    data-mage-init='{"quick-order-modal": {"target": "#quick-order-modal-content", "productName": "<?= $block->escapeHtml($_product->getName()) ?>"}}'>
+                    <span><?= __('Quick order') ?></span>
+                </button>
+                <button type="submit"
+                        title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
+                        class="action primary tocart"
+                        id="product-addtocart-button" disabled>
+                    <span><?= $block->escapeHtml($buttonTitle) ?></span>
+                </button>
+                <?= $block->getChildHtml('', true) ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/js/validate-product": {}
+        }
+    }
+</script>
