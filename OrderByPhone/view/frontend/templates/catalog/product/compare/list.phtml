@@ -11,36 +11,6 @@
 /* @var $block \Magento\Catalog\Block\Product\Compare\ListCompare */
 ?>
 <?php $total = $block->getItems()->getSize() ?>
-
-<div id="quick-order-modal-content" style="display: none;">
-    <form id="quick-order-form">
-        <div class="fieldset">
-            <div class="field">
-                <strong><?= __('Product Name: ') ?></strong>
-                <span id="product-name"></span>
-            </div>
-            <div class="field">
-                <label class="label"><?= __('Name') ?></label>
-                <input type="text" name="name">
-            </div>
-            <div class="field _required">
-                <label class="label"><?= __('Phone Number') ?></label>
-                <input type="text" name="phone">
-            </div>
-            <div class="field">
-                <label class="label"><?= __('Comment') ?></label>
-                <textarea name="comment"></textarea>
-            </div>
-            <div class="field">
-                <span id="quick-order-note">Менеджер работает с 9 до 19-ти и свяжется с Вами в течение 4-х рабочих часов.</span>
-            </div>
-            <div class="field">
-                <button type="submit" class="action primary"><?= __('Submit') ?></button>
-            </div>
-        </div>
-    </form>
-</div>
-
 <?php if ($total) :?>
     <a href="#" class="action print hidden-print" title="<?= $block->escapeHtmlAttr(__('Print This Page')) ?>">
         <span><?= $block->escapeHtml(__('Print This Page')) ?></span>
@@ -107,7 +77,7 @@
                                             type="button"
                                             title="<?= __('Quick order') ?>"
                                             class="tocart primary quick-order"
-                                            data-mage-init='{"quick-order-modal": {"target": "#quick-order-modal-content", "productName": "<?= $item->getName() ?>"}}'>
+                                            data-mage-init='{"quick-order-modal": {"productName": "<?= $item->getName() ?>"}}'>
                                             <span><?= __('Quick order') ?></span>
                                         </button>
                                         <button type="submit" class="action tocart primary" disabled>

@@ -44,34 +44,6 @@ $_helper = $block->getData('outputHelper');
      */
     $pos = $block->getPositioned();
     ?>
-    <div id="quick-order-modal-content" style="display: none;">
-        <form id="quick-order-form">
-            <div class="fieldset">
-                <div class="field">
-                    <strong><?= __('Product Name: ') ?></strong>
-                    <span id="product-name"></span>
-                </div>
-                <div class="field">
-                    <label class="label"><?= __('Name') ?></label>
-                    <input type="text" name="name">
-                </div>
-                <div class="field _required">
-                    <label class="label"><?= __('Phone Number') ?></label>
-                    <input type="text" name="phone">
-                </div>
-                <div class="field">
-                    <label class="label"><?= __('Comment') ?></label>
-                    <textarea name="comment"></textarea>
-                </div>
-                <div class="field">
-                    <span id="quick-order-note">Менеджер работает с 9 до 19-ти и свяжется с Вами в течение 4-х рабочих часов.</span>
-                </div>
-                <div class="field">
-                    <button type="submit" class="action primary"><?= __('Submit') ?></button>
-                </div>
-            </div>
-        </form>
-    </div>
     <div class="products wrapper <?= /* @noEscape */ $viewMode ?> products-<?= /* @noEscape */ $viewMode ?>">
         <ol class="products list items product-items">
             <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
@@ -134,7 +106,7 @@ $_helper = $block->getData('outputHelper');
                                                     type="button"
                                                     title="<?= __('Quick order') ?>"
                                                     class="tocart primary quick-order"
-                                                    data-mage-init='{"quick-order-modal": {"target": "#quick-order-modal-content", "productName": "<?= $_productNameStripped ?>"}}'>
+                                                    data-mage-init='{"quick-order-modal": {"productName": "<?= $_productNameStripped ?>"}}'>
                                                     <span><?= __('Quick order') ?></span>
                                                 </button>
                                                 <button type="submit"

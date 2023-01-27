@@ -1,27 +1,30 @@
 define([
-        "jquery", "Magento_Ui/js/modal/modal"
-    ], function($){
+        "jquery",
+        "Magento_Ui/js/modal/modal",
+        'text!Magenmagic_OrderByPhone/template/modal/modal-popup.html',
+    ], function ($, modal, popupTpl) {
         var ExampleModal = {
-            initModal: function(config, element) {
-                $target =  $(config.target);
+            initModal: function (config, element) {
+                var previewPopup = $('<div/>',{id : 'quick-order-modal' });
 
                 var options = {
                     type: 'popup',
                     title: 'Quick Order',
                     modalClass: 'quick-order-modal',
+                    popupTpl: popupTpl,
                     buttons: []
                 };
 
-                $target.modal(options);
+                var modalPopup = previewPopup.modal(options);
 
-                $target.on('modalclosed', function () {
+                modalPopup.on('modalclosed', function () {
                     $('#quick-order-form').trigger('reset');
                 });
 
-                $(element).click(function() {
-                    console.log(config.productName);
-                    $target.modal('openModal');
-                    $('#product-name').text(config.productName);
+                $(element).click(function () {
+                    console.log(window.checkout);
+                    modalPopup.modal('openModal');
+                    $('.popup-product-name').text(config.productName);
                 });
             }
         };
